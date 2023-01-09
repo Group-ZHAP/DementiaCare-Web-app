@@ -7,7 +7,7 @@ function Cardservice({ one, title, des }) {
     <>
       <Card
         className="card"
-        style={{ width: "35rem", height: "15rem", marginBottom: "132px" }}
+        style={{ width: "", height: "15rem", marginBottom: "132px" }}
       >
         <Card.Body>
           <Im src={one} alt={"images_services"} />
