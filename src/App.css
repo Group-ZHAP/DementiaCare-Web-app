@@ -1,7 +1,7 @@
-.App {
-  text-align: center;
+.card:hover {
+  background-color: #4a0d66;
+  color: wheat;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
