@@ -121,28 +121,28 @@ function Footer() {
                 <li style={{ marginRight: "20px", listStyle: "none" }}>
                   <SocialIcon
                     network="twitter"
-                    fgColor="#009A75"
+                    fgColor="#4A0D66"
                     bgColor="#ffff"
                   />
                 </li>
                 <li style={{ marginRight: "20px", listStyle: "none" }}>
                   <SocialIcon
                     network="facebook"
-                    fgColor="#009A75"
+                    fgColor="#4A0D66"
                     bgColor="#ffff"
                   />
                 </li>
                 <li style={{ marginRight: "20px", listStyle: "none" }}>
                   <SocialIcon
                     network="instagram"
-                    fgColor="#009A75"
+                    fgColor="#4A0D66"
                     bgColor="#ffff"
                   />
                 </li>
                 <li style={{ listStyle: "none" }}>
                   <SocialIcon
                     network="google"
-                    fgColor="#009A75"
+                    fgColor="#4A0D66"
                     bgColor="#ffff"
                   />
                 </li>
