@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../Images/header_logo.png";
 import { SocialIcon } from "react-social-icons";
+import { Link } from "react-router-dom";
 
 const HeaderNav = () => {
   return (
@@ -15,7 +16,14 @@ const HeaderNav = () => {
             </>
           </Logo>
           <NavItem>
-            <li style={{ marginRight: "80px" }}>About Us</li>
+            <li style={{ marginRight: "80px" }}>
+              <Link
+                to="/About"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                About Us
+              </Link>
+            </li>
             <li style={{ marginRight: "80px" }}>Contact-Us</li>
             <li style={{ marginRight: "80px" }}>Help</li>
           </NavItem>
