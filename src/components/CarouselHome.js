@@ -5,6 +5,7 @@ import one from "../Images/carousel-1.png";
 import two from "../Images/carousel-2.png";
 import styled from "styled-components";
 import Fab from "@mui/material/Fab";
+import { Link } from "react-router-dom";
 function CarouselHome() {
   return (
     <Carousel
@@ -30,7 +31,12 @@ function CarouselHome() {
         </Legend2>
         <Buttom>
           <Fab variant="extended" style={{ background: "#009A75" }}>
-            Join Now
+            <Link
+              to="/Register"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              Join Now
+            </Link>
           </Fab>
         </Buttom>
       </div>

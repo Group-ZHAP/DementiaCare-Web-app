@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Footer";
 import About from "./pages/About";
+import Registration from "./Auth/Registration";
 function App() {
   return (
     <div>
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/About" element={<About />}></Route>
+        <Route exact path="/Register" element={<Registration />}></Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />
