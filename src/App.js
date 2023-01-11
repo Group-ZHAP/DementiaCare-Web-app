@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Footer";
 import About from "./pages/About";
 import Registration from "./Auth/Registration";
+import Login from "./Auth/Login";
 function App() {
   return (
     <div>
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/About" element={<About />}></Route>
         <Route exact path="/Register" element={<Registration />}></Route>
+        <Route exact path="/Login" element={<Login />}></Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Registration() {
   const [showAlert, setShowAlert] = React.useState(false);
@@ -177,6 +178,11 @@ function Registration() {
           <p>{alertMessage}</p>
         </Alert>
       )}
+      <p>
+        <Link to="/Login" style={{ color: "black", textDecoration: "none" }}>
+          Login
+        </Link>
+      </p>
     </>
   );
 }
