@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <Container>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -66,6 +66,6 @@ export default function Login() {
           <p>{alertMessage}</p>
         </Alert>
       )}
-    </div>
+    </Container>
   );
 }
