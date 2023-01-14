@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Alert, Container } from "react-bootstrap";
+import { Alert, Row, Col, Container } from "react-bootstrap";
+import logo from "../Images/header_logo.png";
 import { Link } from "react-router-dom";
 
 function Registration() {
@@ -70,120 +71,178 @@ function Registration() {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            name="email"
-            type="email"
-            placeholder="Enter email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-          />
-        </Form.Group>
+    <Row>
+      <Col
+        md={6}
+        className="d-flex justify-content-center  align-items-center "
+      >
+        <img src={logo} alt="logo" className="img-fluid hover-shadow" />
+      </Col>
+      <Col md={6}>
+        <div style={{ padding: "30px" }}>
+          <Form onSubmit={handleSubmit}>
+            <center>
+              <h1 style={{ color: "#009A75", padding: "25px" }}>Register</h1>
+            </center>
+            <Row>
+              <Col md={6}>
+                {" "}
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    name="email"
+                    type="email"
+                    placeholder="Enter email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                {" "}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="name"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              {" "}
+              <Col md={6}>
+                {" "}
+                <Form.Group>
+                  <Form.Label>Gender:</Form.Label>
+                  <Form.Control
+                    as="select"
+                    name="gender"
+                    onChange={(e) => setGender(e.target.value)}
+                    value={gender}
+                    required
+                  >
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                {" "}
+                <Form.Group>
+                  <Form.Label>Date of Birth:</Form.Label>
+                  <Form.Control
+                    type="rext"
+                    name="date_of_birth"
+                    placeholder="YYYY/MM/DD"
+                    onChange={(e) => setDate_of_birth(e.target.value)}
+                    value={date_of_birth}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="name"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            required
-          />
-        </Form.Group>
+            <Row>
+              <Col>
+                {" "}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                {" "}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label> Confirm Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    name="cnfm_password"
+                    placeholder="Confirm Password"
+                    onChange={(e) => setCnfm_password(e.target.value)}
+                    value={cnfm_password}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
 
-        <Form.Group>
-          <Form.Label>Gender:</Form.Label>
-          <Form.Control
-            as="select"
-            name="gender"
-            onChange={(e) => setGender(e.target.value)}
-            value={gender}
-            required
+            <Row>
+              <Col>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>caretaker_relation</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="caretaker_relation"
+                    placeholder="caretaker_relation"
+                    onChange={(e) => setCaretaker_relation(e.target.value)}
+                    value={caretaker_relation}
+                    required
+                  />
+                </Form.Group>
+              </Col>{" "}
+              <Col>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>doctor_name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="doctor_name"
+                    placeholder="doctor_name"
+                    onChange={(e) => setDoctor_name(e.target.value)}
+                    value={doctor_name}
+                    required
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <center>
+              <Button style={{ background: "#009A75" }} type="submit">
+                Register
+              </Button>
+            </center>
+          </Form>
+          {showAlert && (
+            <Alert
+              variant="danger"
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+              <Alert.Heading>Error</Alert.Heading>
+              <p>{alertMessage}</p>
+            </Alert>
+          )}
+          <p
+            style={{
+              textAlign: "center",
+              paddingTop: "10px",
+            }}
           >
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </Form.Control>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Date of Birth:</Form.Label>
-          <Form.Control
-            type="rext"
-            name="date_of_birth"
-            onChange={(e) => setDate_of_birth(e.target.value)}
-            value={date_of_birth}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label> Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="cnfm_password"
-            placeholder="Confirm Password"
-            onChange={(e) => setCnfm_password(e.target.value)}
-            value={cnfm_password}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>caretaker_relation</Form.Label>
-          <Form.Control
-            type="text"
-            name="caretaker_relation"
-            placeholder="caretaker_relation"
-            onChange={(e) => setCaretaker_relation(e.target.value)}
-            value={caretaker_relation}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>doctor_name</Form.Label>
-          <Form.Control
-            type="text"
-            name="doctor_name"
-            placeholder="doctor_name"
-            onChange={(e) => setDoctor_name(e.target.value)}
-            value={doctor_name}
-            required
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-      {showAlert && (
-        <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
-          <Alert.Heading>Error</Alert.Heading>
-          <p>{alertMessage}</p>
-        </Alert>
-      )}
-      <p>
-        <Link to="/Login" style={{ color: "black", textDecoration: "none" }}>
-          Login
-        </Link>
-      </p>
-    </Container>
+            <Link
+              to="/Login"
+              style={{
+                color: "black",
+                textDecoration: "none",
+                textAlign: "center",
+              }}
+            >
+              Already have a account?{" "}
+              <span style={{ color: "#009A75" }}>Login</span>
+            </Link>
+          </p>
+        </div>
+      </Col>
+    </Row>
   );
 }
 
