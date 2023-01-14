@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Col, Row } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,44 +29,73 @@ export default function Login() {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       });
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email"
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-      </Form>
+    <div style={{ padding: "30px" }}>
+      <center>
+        {" "}
+        <h1 style={{ color: "#009A75" }}>Authentication</h1>
+      </center>
+      <Row>
+        <Col md={6} md={{ span: 4, offset: 4 }}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter email"
+              />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+            </Form.Group>
+            <div style={{ padding: "10px", textAlign: "center" }}>
+              <Button style={{ background: "#009A75" }} type="submit">
+                Login
+              </Button>
+            </div>
+          </Form>
+        </Col>
+      </Row>
       {showAlert && (
         <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
           <Alert.Heading>Error</Alert.Heading>
           <p>{alertMessage}</p>
         </Alert>
       )}
-    </Container>
+
+      <p
+        style={{
+          textAlign: "center",
+          paddingTop: "10px",
+        }}
+      >
+        <Link
+          to="/Register"
+          style={{
+            color: "black",
+            textDecoration: "none",
+            textAlign: "center",
+          }}
+        >
+          Already have a account?{" "}
+          <span style={{ color: "#009A75" }}>Register</span>
+        </Link>
+      </p>
+    </div>
   );
 }
