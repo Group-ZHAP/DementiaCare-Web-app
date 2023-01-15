@@ -36,7 +36,6 @@ export default function Login() {
   return (
     <div style={{ padding: "30px" }}>
       <center>
-        {" "}
         <h1 style={{ color: "#009A75" }}>Authentication</h1>
       </center>
       <Row>
