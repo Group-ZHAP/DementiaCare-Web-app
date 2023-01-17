@@ -24,6 +24,14 @@ const HeaderNav = () => {
                 About Us
               </Link>
             </li>
+            <li style={{ marginRight: "80px" }}>
+              <Link
+                to="/Dementiatalk"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                Contact-Us
+              </Link>
+            </li>
             <li style={{ marginRight: "80px" }}>Contact-Us</li>
             <li style={{ marginRight: "80px" }}>Help</li>
           </NavItem>
