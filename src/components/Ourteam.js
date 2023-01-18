@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { SocialIcon } from "react-social-icons";
-import avatr from "../Images/Avatr.jpeg";
+
 function Ourteam({ img, title, des }) {
   return (
     <>
