@@ -4,7 +4,7 @@ import avatr from "../Images/Avatr.jpeg";
 function Ourteam({ img, title, des }) {
   return (
     <>
-      <Card style={{ width: "18rem", height: "30rem" }}>
+      <Card style={{ width: "18rem", height: "30rem", padding: "25px" }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <center>
