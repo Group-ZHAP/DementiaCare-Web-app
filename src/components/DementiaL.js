@@ -152,8 +152,8 @@ function DementiaL() {
                 </li>
                 <li>
                   They may still be able to talk, but communicating and
-                  expressing thoughts becomes difficult – even for something
-                  basic like pain.
+                  expressing thoughts becomes difficult even for something basic
+                  like pain.
                 </li>
                 <li>
                   You might see significant personality changes or the fading of
