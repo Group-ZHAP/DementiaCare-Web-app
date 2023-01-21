@@ -157,7 +157,7 @@ function DementiaL() {
                 </li>
                 <li>
                   You might see significant personality changes or the fading of
-                  personality altogether.
+                  personality together.
                 </li>
               </ul>
             </p>
