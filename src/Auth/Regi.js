@@ -1,7 +1,7 @@
 import React from "react";
 
 function Regi() {
-  return <div>Hello</div>;
+  return <div>hi</div>;
 }
 
 export default Regi;
