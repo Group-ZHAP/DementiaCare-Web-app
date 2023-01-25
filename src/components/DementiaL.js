@@ -3,8 +3,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import umbrella from "../Images/umbrella1.png";
 import stages from "../Images/stages_of_dementia.png";
 import stage from "../Images/symptoms_of_dementia.png";
-import { textAlign } from "@mui/system";
-
+import BoxDemnti from "./BoxDemnti";
+import img from "../Images/signs_dementia_image.png";
+import img1 from "../Images/hand_under_hand_pic.png";
 function DementiaL() {
   return (
     <>
@@ -17,7 +18,7 @@ function DementiaL() {
           </h1>
           <Container>
             <Row>
-              <Col>
+              <Col md={6}>
                 <ul>
                   <li>
                     Dementia is a broad term that describes a loss of thinking
@@ -47,11 +48,21 @@ function DementiaL() {
                   </li>
                 </ul>
               </Col>
-              <Col>
-                <img src={umbrella} alt="umbrella" />
+              <Col md={6}>
+                <img className="img-fluid" src={umbrella} alt="umbrella" />
               </Col>
             </Row>
           </Container>
+        </div>
+        <div>
+          <BoxDemnti
+            im={img}
+            title=" 10 Signs of Early Dementia :"
+            des=" 10 Signs of Early Dementia : Different types of dementia can
+                affect people differently, and everyone will experience symptoms
+                in their own way. There are some common early symptoms that may
+                appear some time before a diagnosis of dementia."
+          />
         </div>
         <div>
           <h1
@@ -61,7 +72,7 @@ function DementiaL() {
           </h1>
           <Container>
             <Row>
-              <Col mid={6}>
+              <Col md={6}>
                 <p
                   style={{
                     borderBottom: "3px solid #009A75 ",
@@ -108,8 +119,8 @@ function DementiaL() {
                   </ul>
                 </p>
               </Col>
-              <Col mid={6}>
-                <img src={stages} alt="stages" />
+              <Col md={6}>
+                <img className="img-fluid" src={stages} alt="stages" />
               </Col>
             </Row>
             <p
@@ -180,6 +191,87 @@ function DementiaL() {
               </Col>
             </Row>
           </Container>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            fontSize: "1.2rem",
+            margin: "0px",
+          }}
+        >
+          <ul
+            style={{
+              padding: "20px",
+              width: "30rem",
+              lineHeight: "50px",
+            }}
+          >
+            <li>Struggling to find the right word or name.</li>
+            <li>
+              Finding it difficult to do everyday tasks in social or work
+              settings.
+            </li>
+            <li>Forgetting something that they just read.</li>
+            <li>Frequently losing or misplacing things.</li>
+            <li>Increasing trouble with planning or organizing.</li>
+          </ul>
+          <ul
+            style={{
+              padding: "20px",
+              width: "30rem",
+              lineHeight: "32px",
+            }}
+          >
+            <li>
+              Forgetting things that happened recently or major events in their
+              life
+            </li>
+            <li>
+              Being moody or withdrawn, especially in social situations or when
+              something requires too much thought.
+            </li>
+            <li>
+              Forgetting something that they just telephone phone number,
+              address, etc.
+            </li>
+            <li>
+              Forgetting something that they just telephone phone number,
+              address, etc.
+            </li>
+            <li>
+              Changing sleep patterns, like sleeping during the day and being
+              restless at night
+            </li>
+          </ul>
+          <ul
+            style={{
+              padding: "20px",
+              width: "30rem",
+              lineHeight: "35px",
+            }}
+          >
+            <li>Need 24/7 help with daily activities and personal care.</li>
+            <li>Have increasing difficulty communicating.</li>
+            <li>
+              Lose awareness of recent experiences and their surroundings.
+            </li>
+            <li>
+              Gradually and progressively lose physical abilities, including the
+              ability to walk, sit, and swallow.
+            </li>
+            <li>More likely to develop infections, especially pneumonia.</li>
+          </ul>
+        </div>
+        <div>
+          <BoxDemnti
+            im={img1}
+            title="HAND under Hand "
+            des="Hand-under-Hand (HuH) is a technique to assist with everyday tasks that enables the person living with dementia to control their own movements with the guidance of the care partner. 
+HuH failitates doing with as a care partner, rather than doing to as a caregiver. This techniqye supports a person’s activity by placing the care partners’ hand UNDER the hand of the person doing the movement."
+          />
         </div>
       </div>
     </>

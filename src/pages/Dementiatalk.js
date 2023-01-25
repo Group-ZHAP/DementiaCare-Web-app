@@ -20,10 +20,13 @@ function Dementiatalk() {
               className="img-fluid  d-flex justify-content-center  align-items-center "
               src={bg}
               alt="aboutsrc"
+              style={{ height: "500px" }}
             />
 
             <div style={{ position: "absolute" }}>
-              <h3 style={{ color: "white" }}>A tour to understanding</h3>
+              <h3 style={{ color: "white", fontSize: "5rem", padding: "10px" }}>
+                A tour to understanding
+              </h3>
               <center>
                 <div style={{ padding: "25px" }}>
                   <Button
@@ -32,6 +35,7 @@ function Dementiatalk() {
                     }}
                     variant="outline-secondary"
                     style={{ marginRight: "25px" }}
+                    size="lg"
                   >
                     Brain Basics
                   </Button>
@@ -41,6 +45,7 @@ function Dementiatalk() {
                       setShow(false);
                     }}
                     variant="outline-secondary"
+                    size="lg"
                     style={{ marginLeft: "25px" }}
                   >
                     Dementia
