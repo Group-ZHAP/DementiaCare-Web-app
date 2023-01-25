@@ -19,7 +19,7 @@ function DementiaL() {
           <Container>
             <Row>
               <Col md={6}>
-                <ul>
+                <ul style={{ textAlign: "justify", fontSize: "1.5rem" }}>
                   <li>
                     Dementia is a broad term that describes a loss of thinking
                     ability, memory, attention, logical reasoning, and other
@@ -180,7 +180,9 @@ function DementiaL() {
               <h1 style={{ padding: "25px" }}>Symptoms of Dementia</h1>
             </center>
           </div>
-          <p style={{ padding: "50px", textAlign: "center" }}>
+          <p
+            style={{ padding: "50px", textAlign: "center", fontSize: "1.5rem" }}
+          >
             As there are 3 stages of Dementia. Therefore symptoms also vary from
             stage to stage.{" "}
           </p>
