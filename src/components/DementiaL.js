@@ -142,8 +142,7 @@ function DementiaL() {
                 </li>
                 <li>
                   In this stage, you might notice that they get words mixed up,
-                  are often frustrated or angry, or act in unexpected ways, like
-                  refusing to bathe.
+                  are often frustrated or angry, or act in unexpected ways
                 </li>
               </ul>
             </p>
