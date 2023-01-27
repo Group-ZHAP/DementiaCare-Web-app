@@ -25,7 +25,7 @@ export default function Login() {
           setAlertMessage("Invalid email or password");
           setShowAlert(true);
         } else {
-          console.log("An error ocurred, status code: ", response.status);
+          console.log("An error ocurred, status code:- ", response.status);
         }
       })
       .catch((error) => {
