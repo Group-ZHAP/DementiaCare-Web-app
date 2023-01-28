@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const history = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://127.0.0.1:8000/auth/user/login/", {
@@ -19,7 +22,9 @@ export default function Login() {
         if (response.status === 200) {
           // Handle Successful login
           console.log("Successful login");
-          // possible redirect
+          localStorage.setItem("isLoggedIn", true);
+          setIsLoggedIn(true);
+          history.push("/");
         } else if (response.status === 401) {
           // Handle Unauthorized
           setAlertMessage("Invalid email or password");
@@ -32,6 +37,15 @@ export default function Login() {
         // console.error("Error:", error);
       });
   };
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn) {
+      setIsLoggedIn(true);
+    } else {
+      // redirect to login page
+    }
+  }, []);
 
   return (
     <div style={{ padding: "30px" }}>
