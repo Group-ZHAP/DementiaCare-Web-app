@@ -15,7 +15,12 @@ function About() {
       <div>
         <Row>
           <Col>
-            <img className="img-fluid" src={Aboutimg} alt="aboutsrc" />
+            <img
+              className="img-fluid"
+              src={Aboutimg}
+              alt="aboutsrc"
+              style={{ width: "100%" }}
+            />
           </Col>
         </Row>
         <div

@@ -10,7 +10,7 @@ export default function Login() {
   const [alertMessage, setAlertMessage] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const history = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://127.0.0.1:8000/auth/user/login/", {
@@ -24,7 +24,7 @@ export default function Login() {
           console.log("Successful login");
           localStorage.setItem("isLoggedIn", true);
           setIsLoggedIn(true);
-          history.push("/");
+          navigate("/");
         } else if (response.status === 401) {
           // Handle Unauthorized
           setAlertMessage("Invalid email or password");
@@ -53,7 +53,7 @@ export default function Login() {
         <h1 style={{ color: "#009A75" }}>Authentication</h1>
       </center>
       <Row>
-        <Col md={6} md={{ span: 4, offset: 4 }}>
+        <Col md={{ span: 4, offset: 4 }}>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>

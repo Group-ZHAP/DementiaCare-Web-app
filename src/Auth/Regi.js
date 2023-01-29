@@ -1,7 +1,7 @@
 import React from "react";
 
-function Regi() {
-  return <>hi</>;
-}
+const Regi = () => {
+  return <div>Regi</div>;
+};
 
 export default Regi;
