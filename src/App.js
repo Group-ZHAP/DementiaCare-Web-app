@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import About from "./pages/About";
 import Registration from "./Auth/Registration";
 import Login from "./Auth/Login";
+import ChangePassword from "./Auth/ChangePassword";
 import Dementiatalk from "./pages/Dementiatalk";
 import ProtectedRoute from "./Auth/Protected";
 
@@ -26,6 +27,11 @@ function App() {
 
         <Route exact path="/Register" element={<Registration />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
+        <Route
+          exact
+          path="/ChangePassword"
+          element={<ChangePassword />}
+        ></Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />
