@@ -34,7 +34,7 @@ const ChangePassword = () => {
         // Show an error message
         return;
       }
-      // Show a success message
+
       // Clear the form
       //   setCurrentPassword("");
       setPassword("");
