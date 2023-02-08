@@ -40,7 +40,7 @@ const ChangePassword = () => {
       setPassword("");
       setPassword2("");
     } catch (error) {
-      // Show an error message
+      // Show  error message
     }
   };
 
