@@ -35,7 +35,7 @@ const ChangePassword = () => {
         return;
       }
 
-      // Clear the form
+      // Clear  form
       //   setCurrentPassword("");
       setPassword("");
       setPassword2("");
