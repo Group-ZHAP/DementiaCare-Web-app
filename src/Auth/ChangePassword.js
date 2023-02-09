@@ -31,7 +31,7 @@ const ChangePassword = () => {
         }
       );
       if (!response.ok) {
-        // Show an error message
+        // Show  error message
         return;
       }
 
