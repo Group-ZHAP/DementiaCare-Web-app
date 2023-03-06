@@ -12,6 +12,7 @@ import Login from "./Auth/Login";
 import ChangePassword from "./Auth/ChangePassword";
 import Dementiatalk from "./pages/Dementiatalk";
 import ProtectedRoute from "./Auth/Protected";
+import Docter from "./components/Docter";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 
         <Route exact path="/Register" element={<Registration />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
+        <Route exact path="/recommended" element={<Docter />} />
         <Route
           exact
           path="/ChangePassword"
