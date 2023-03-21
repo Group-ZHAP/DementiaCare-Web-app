@@ -2,45 +2,48 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 const ChangePassword = () => {
-  //   const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [cnfm_password, setCnfm_password] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validate the form data
-    if (setPassword !== setPassword2) {
-      // Show an error message
+    if (password !== cnfm_password) {
+      setErrorMessage("Passwords do not match");
       return;
+    } else {
+      setErrorMessage("");
     }
 
-    // Make an API call to change the password
     try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      console.log(token.access);
       const response = await fetch(
-        "http://127.0.0.1:8000/auth/user/changepassword/",
+        "http://localhost:8000/auth/user/changepassword/",
         {
           method: "POST",
           headers: {
+            Accept: "application/json",
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token.access}`,
           },
+
           body: JSON.stringify({
             password,
-            password2,
+            cnfm_password,
           }),
         }
       );
       if (!response.ok) {
-        // Show  error message
+        setErrorMessage("Password change failed");
         return;
       }
 
-      // Clear  form
-      //   setCurrentPassword("");
       setPassword("");
-      setPassword2("");
+      setCnfm_password("");
     } catch (error) {
-      // Show  error message
+      setErrorMessage("Password change failed");
     }
   };
 
@@ -61,10 +64,11 @@ const ChangePassword = () => {
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
                 type="password"
-                value={password2}
-                onChange={(event) => setPassword2(event.target.value)}
+                value={cnfm_password}
+                onChange={(event) => setCnfm_password(event.target.value)}
               />
             </Form.Group>
+            {errorMessage && <p className="text-danger">{errorMessage}</p>}
             <Button variant="primary" type="submit">
               Change Password
             </Button>

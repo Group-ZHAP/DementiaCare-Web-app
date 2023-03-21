@@ -22,30 +22,29 @@ export default function Login() {
         if (response.status === 200) {
           // Handle Successful login
           console.log("Successful login");
-          localStorage.setItem("isLoggedIn", true);
-          setIsLoggedIn(true);
-          navigate("/");
+          return response.json();
         } else if (response.status === 401) {
           // Handle Unauthorized
           setAlertMessage("Invalid email or password");
           setShowAlert(true);
         } else {
-          console.log("An error ocurred, status code:- ", response.status);
+          console.log("An error occurred, status code:- ", response.status);
+        }
+      })
+      .then((data) => {
+        if (data && data.token) {
+          // Store token in local storage
+          // localStorage.setItem('token', JSON.stringify({ access_token: 'your_token_here' }));
+
+          localStorage.setItem("token", JSON.stringify(data.token));
+          setIsLoggedIn(true);
+          navigate("/");
         }
       })
       .catch((error) => {
-        // console.error("Error:", error);
+        console.error("Error:", error);
       });
   };
-
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn");
-    if (loggedIn) {
-      setIsLoggedIn(true);
-    } else {
-      // redirect to login page
-    }
-  }, []);
 
   return (
     <div style={{ padding: "30px" }}>
