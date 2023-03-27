@@ -184,7 +184,7 @@ function Brain() {
       <center>
         <p
           style={{
-            textAlign: "center",
+          
             width: "60rem",
             fontSize: "1.4rem",
             marginBottom: "25px",

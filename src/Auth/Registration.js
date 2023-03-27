@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Alert, Row, Col, Container } from "react-bootstrap";
+import { Alert, Row, Col } from "react-bootstrap";
 import logo from "../Images/header_logo.png";
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,7 @@ function Registration() {
   const [caretaker_relation, setCaretaker_relation] = React.useState("");
   const [doctor_name, setDoctor_name] = React.useState("");
   const [error, setError] = React.useState(null);
+  console.log(error)
   async function handleSubmit(event) {
     event.preventDefault();
     try {

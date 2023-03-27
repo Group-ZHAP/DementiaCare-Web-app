@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ export default function Login() {
   const [alertMessage, setAlertMessage] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  console.log(isLoggedIn)
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();

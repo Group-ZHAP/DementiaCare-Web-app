@@ -17,7 +17,12 @@ function Docter() {
     try {
       const response = await axios.post(
         "http://localhost:5000/recommend",
-        formData
+        {
+          rating: parseInt(formData.rating),
+          exp: parseInt(formData.exp),
+          location: parseInt(formData.location),
+        }
+       
       );
       setRecommendedDoctors(response.data.recommended_doctors);
       setExperience(response.data.experience);
