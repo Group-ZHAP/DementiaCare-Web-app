@@ -14,7 +14,7 @@ import ProtectedRoute from "./Auth/Protected";
 import Docter from "./components/Docter";
 import  Quiz  from "./components/Quiz"
 import Caregiver from "./Caregiver";
-
+import ContactForm from "./pages/ContactUs";
 import MainPage from "./components/MainPage/MainPage";
 import Appointment from "./components/Appointment/Appointment";
 import DoctorsZone from "./components/DoctorsZone/DoctorsZone";
@@ -113,7 +113,7 @@ function App() {
           <Route exact path="/doctorsZone" element={<DoctorsZone />} />
           <Route exact path="/dashboard" element={<App1 />} />
           <Route exact path="/settings" element={<Settings />} />
-
+          <Route exact path="/contactUs" element={<ContactForm/>} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

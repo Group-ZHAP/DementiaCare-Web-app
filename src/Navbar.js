@@ -38,12 +38,12 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/blog"
+                to="/main-page"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                OurApp
+              Appointment
               </NavLink>
             </li>
             <li className="nav-item">
