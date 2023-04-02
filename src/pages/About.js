@@ -172,6 +172,7 @@ function About() {
             </Col>
           </Row>
         </Container>
+
       </div>
     </>
   );

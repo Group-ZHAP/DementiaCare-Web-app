@@ -15,6 +15,12 @@ import Docter from "./components/Docter";
 import  Quiz  from "./components/Quiz"
 import Caregiver from "./Caregiver";
 
+import MainPage from "./components/MainPage/MainPage";
+import Appointment from "./components/Appointment/Appointment";
+import DoctorsZone from "./components/DoctorsZone/DoctorsZone";
+import { Dashboard } from "@material-ui/icons";
+import Settings from "./components/Settings/Settings";
+import App1 from "./App1"
 
 
 // import React,{useState,useEffect} from "react";
@@ -100,6 +106,14 @@ function App() {
           path="/Caregiver"
           element={<Caregiver />}
         ></Route>
+    
+
+          <Route exact path="/main-page" element={<MainPage />} />
+          <Route exact path="/Appointment" element={<Appointment />} />
+          <Route exact path="/doctorsZone" element={<DoctorsZone />} />
+          <Route exact path="/dashboard" element={<App1 />} />
+          <Route exact path="/settings" element={<Settings />} />
+
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

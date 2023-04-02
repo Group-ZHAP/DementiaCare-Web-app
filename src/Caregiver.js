@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import JobCart from "./components/Job/JobCart";
 import NewJobMod from "./components/Job/NewJobMod";
-import {firestore,app} from './firebase/config'
+import {firestore1,firebase} from "../src/firebase"
 import {Close as CloseIcon} from '@material-ui/icons'
 import ViewJobModal from "./components/Job/ViewJobModal";
 
@@ -20,7 +20,7 @@ const [viewJob,setViewJob] = useState({});
 const fetchJobs = async() =>{
   setCustomSearch(false);
   setLoading(true);
-  const req = await firestore.collection('jobs').orderBy('postedOn','desc').get();
+  const req = await firestore1.collection('jobs').orderBy('postedOn','desc').get();
  const tempJobs = req.docs.map((job) => ({...job.data(), id:job.id,postedOn:job.data().postedOn.toDate(),}));
  setJobs(tempJobs);
  setLoading(false);
@@ -28,7 +28,7 @@ const fetchJobs = async() =>{
 const fetchJobsCustom = async jobSearch =>{
   setLoading(true);
   setCustomSearch(true);
-  const req = await firestore.collection('jobs').orderBy('postedOn','desc')
+  const req = await firestore1.collection('jobs').orderBy('postedOn','desc')
   .where("location","==",jobSearch.location)
   .where("type","==",jobSearch.type)
   .get();
@@ -39,9 +39,9 @@ const fetchJobsCustom = async jobSearch =>{
 }
 
 const postJob = async jobDetails =>{
-  await firestore.collection('jobs').add({
+  await firestore1.collection('jobs').add({
     ...jobDetails,
-    postedOn: app.firestore.FieldValue.serverTimestamp()
+    postedOn: firebase.firestore1.FieldValue.serverTimestamp()
   });
   fetchJobs();
 }
