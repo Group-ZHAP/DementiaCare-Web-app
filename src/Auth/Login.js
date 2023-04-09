@@ -26,6 +26,7 @@ export default function Login() {
           return response.json();
         } else if (response.status === 401) {
           // Handle Unauthorized
+          // setIsLoggedIn(true);
           setAlertMessage("Invalid email or password");
           setShowAlert(true);
         } else {
@@ -36,9 +37,9 @@ export default function Login() {
         if (data && data.token) {
           // Store token in local storage
           // localStorage.setItem('token', JSON.stringify({ access_token: 'your_token_here' }));
-
+          localStorage.setItem("isLoggedIn", JSON.stringify(true));
           localStorage.setItem("token", JSON.stringify(data.token));
-          setIsLoggedIn(true);
+          setIsLoggedIn(false);
           navigate("/");
         }
       })
@@ -46,7 +47,12 @@ export default function Login() {
         console.error("Error:", error);
       });
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
   return (
     <div style={{ padding: "30px" }}>
       <center>
@@ -54,62 +60,80 @@ export default function Login() {
       </center>
       <Row>
         <Col md={{ span: 4, offset: 4 }}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email"
-              />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-              />
-            </Form.Group>
-            <div style={{ padding: "10px", textAlign: "center" }}>
-              <Button style={{ background: "#009A75" }} type="submit">
-                Login
+          {isLoggedIn ? (
+            <div style={{ textAlign: "center" }}>
+              <h3>You are logged in!</h3>
+              <Button
+                style={{ background: "#009A75" }}
+                onClick={handleLogout}
+              >
+                Logout
               </Button>
             </div>
-            <p>password</p>
-          </Form>
+          ) : (
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter email"
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                />
+              </Form.Group>
+              <div style={{ padding: "10px", textAlign: "center" }}>
+                <Button style={{ background: "#009A75" }} type="submit">
+                  Login
+                </Button>
+              </div>
+              {/* <p>password</p> */}
+            </Form>
+          )}
         </Col>
       </Row>
       {showAlert && (
-        <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
+        <Alert
+          variant="danger"
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
           <Alert.Heading>Error</Alert.Heading>
           <p>{alertMessage}</p>
         </Alert>
       )}
 
-      <p
-        style={{
-          textAlign: "center",
-          paddingTop: "10px",
-        }}
-      >
-        <Link
-          to="/Register"
+      {!isLoggedIn && (
+        <p
           style={{
-            color: "black",
-            textDecoration: "none",
             textAlign: "center",
+            paddingTop: "10px",
           }}
         >
-          Already have a account?{" "}
-          <span style={{ color: "#009A75" }}>Register</span>
-        </Link>
-      </p>
+          <Link
+            to="/Register"
+            style={{
+              color: "black",
+              textDecoration: "none",
+              textAlign: "center",
+            }}
+          >
+            Don't have an account?{" "}
+            <span style={{ color: "#009A75" }}>Register</span>
+          </Link>
+        </p>
+      )}
     </div>
   );
 }

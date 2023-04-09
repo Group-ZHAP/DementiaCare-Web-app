@@ -25,8 +25,22 @@ const HeaderNav = () => {
               </Link>
             </li>
 
-            <li style={{ marginRight: "80px" }}>Contact-Us</li>
-            <li style={{ marginRight: "80px" }}>Help</li>
+            <li style={{ marginRight: "80px" }}>
+              <Link
+                to="/contactUs"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                Contact-Us
+              </Link>
+            </li>
+            <li style={{ marginRight: "80px" }}>
+              <Link
+                to="/help"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                Help
+              </Link>
+            </li>
           </NavItem>
           <Social>
             <ul style={{ display: "flex", justifyContent: "space-around" }}>

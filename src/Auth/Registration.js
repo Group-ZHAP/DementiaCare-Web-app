@@ -18,7 +18,7 @@ function Registration() {
   const [caretaker_relation, setCaretaker_relation] = React.useState("");
   const [doctor_name, setDoctor_name] = React.useState("");
   const [error, setError] = React.useState(null);
-  console.log(error)
+ 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -39,7 +39,9 @@ function Registration() {
           }),
         }
       );
+      
       const data = await response.json();
+      console.log(data)
       if (!response.ok) {
         switch (response.status) {
           case 400:
@@ -127,8 +129,8 @@ function Registration() {
                     value={gender}
                     required
                   >
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
                   </Form.Control>
                 </Form.Group>
               </Col>

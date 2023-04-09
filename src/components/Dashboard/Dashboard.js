@@ -62,7 +62,7 @@ const Dashboard = () => {
       setAppointment(appointments);
     });
   }, []);
-console.log(appointment)
+
   return (
     <div className="dashboard">
       {/* <Sidebar></Sidebar> */}

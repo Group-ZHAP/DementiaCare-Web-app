@@ -6,7 +6,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import appointmentData from '../../data/AppointmentData'
 import AppointmentType from '../AppointmentType/AppointmentType';
-import Footer from '../Footer/Footer';
+
 import { ErrorBoundary } from 'react-error-boundary';
 
 const Appointment = () => {
@@ -80,7 +80,7 @@ const Appointment = () => {
                     }
                 </div>
             </div>
-            <Footer></Footer>
+    
         </div>
     );
 };

@@ -32,7 +32,18 @@ function Navbar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Service
+             Cognitive
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/Caregiver"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+             Caregiver
               </NavLink>
             </li>
             <li className="nav-item">
@@ -43,7 +54,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-              Appointment
+              Portal
               </NavLink>
             </li>
             <li className="nav-item">

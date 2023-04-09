@@ -1,32 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button, Row, Col, ListGroup } from "react-bootstrap";
-
-function Docter() {
+import { Link } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
+function Doctor() {
   const [formData, setFormData] = useState({
     rating: "",
     exp: "",
-    location: "",
   });
 
   const [recommendedDoctors, setRecommendedDoctors] = useState([]);
-  const [experience, setExperience] = useState([]);
+  const [doctorContacts, setDoctorContacts] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:5000/recommend",
-        {
-          rating: parseInt(formData.rating),
-          exp: parseInt(formData.exp),
-          location: parseInt(formData.location),
-        }
-       
-      );
-      setRecommendedDoctors(response.data.recommended_doctors);
-      setExperience(response.data.experience);
-      console.log(experience);
+      const response = await axios.post("http://localhost:5000/recommend", {
+        rating: parseInt(formData.rating),
+        exp: parseInt(formData.exp),
+      });
+      setRecommendedDoctors(response.data.data.recommended_doctors);
+      setDoctorContacts(response.data.data.contacts);
     } catch (error) {
       console.error(error);
     }
@@ -41,9 +35,12 @@ function Docter() {
   };
 
   return (
+<><Link to="/quiz">
+    <BsArrowLeft /> Back
+  </Link>
     <Row className="justify-content-md-center mt-5">
       <Col md={6}>
-        <h3 className="text-center mb-4">Find a Recommended Doctors</h3>
+        <h3 className="text-center mb-4" style={{color:"#19D3AE"}}>Find a Recommended Doctor</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formRating">
             <Form.Label>Rating:</Form.Label>
@@ -63,28 +60,19 @@ function Docter() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group controlId="formLocation">
-            <Form.Label>Location:</Form.Label>
-            <Form.Control
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-            />
-          </Form.Group>
           <br></br>
           <center>
-            <Button variant="primary" type="submit">
+            <Button variant="success" type="submit">
               Submit
             </Button>
           </center>
         </Form>
 
-        {recommendedDoctors.length > 0 && experience.length >= 0 && (
+        {recommendedDoctors.length > 0 && doctorContacts.length >= 0 && (
           <Row className="mt-4">
             <Col>
               <ListGroup>
-                <ListGroup.Item active>Recommended Doctors:</ListGroup.Item>
+                <ListGroup.Item  variant="success" >Recommended Doctors:</ListGroup.Item>
                 {recommendedDoctors.map((doctor, index) => (
                   <ListGroup.Item key={index}>{doctor}</ListGroup.Item>
                 ))}
@@ -92,9 +80,9 @@ function Docter() {
             </Col>
             <Col>
               <ListGroup>
-                <ListGroup.Item active>Experience:</ListGroup.Item>
-                {experience.map((exe, index) => (
-                  <ListGroup.Item key={index}>{exe}</ListGroup.Item>
+                <ListGroup.Item variant="success">Contact:</ListGroup.Item>
+                {doctorContacts.map((contact, index) => (
+                  <ListGroup.Item key={index}>{contact}</ListGroup.Item>
                 ))}
               </ListGroup>
             </Col>
@@ -102,7 +90,8 @@ function Docter() {
         )}
       </Col>
     </Row>
+    </>
   );
 }
 
-export default Docter;
+export default Doctor;

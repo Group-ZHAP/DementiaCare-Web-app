@@ -27,7 +27,7 @@ const AppointmentType = (props) => {
       action: "notVisited",
       action1: "pending",
     };
-    console.log(appointmentInfo);
+
     db.collection("appointments")
       .add(appointmentInfo)
       .then((docRef) => {

@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 
 const Dashboard = () => {
   const [appointment, setAppointment] = useState([]);
-  const [action1, setAction1] = useState(null);
+  // const [action1, setAction1] = useState(null);
   const [key, setKey] = useState(null);
   const classes = useStyles();
  

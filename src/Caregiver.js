@@ -41,7 +41,7 @@ const fetchJobsCustom = async jobSearch =>{
 const postJob = async jobDetails =>{
   await firestore1.collection('jobs').add({
     ...jobDetails,
-    postedOn: firebase.firestore1.FieldValue.serverTimestamp()
+    // postedOn: firebase.firestore1.FieldValue.serverTimestamp()
   });
   fetchJobs();
 }
