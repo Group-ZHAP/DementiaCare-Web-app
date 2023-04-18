@@ -25,7 +25,10 @@ function Registration() {
         "http://127.0.0.1:8000/auth/user/register/",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+            headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://643e818ec9c2244cf3230842--magical-hummingbird-ae5667.netlify.app"
+        },
           body: JSON.stringify({
             email,
             name,
