@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../Images/header_logo.png";
 import { SocialIcon } from "react-social-icons";
 import { Link } from "react-router-dom";
 
 const HeaderNav = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
+
   return (
     <>
       <div>
@@ -42,6 +55,12 @@ const HeaderNav = () => {
               </Link>
             </li>
           </NavItem>
+          {isLoggedIn ? (
+            <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+          ) : (
+            <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
+          )}
+
           <Social>
             <ul style={{ display: "flex", justifyContent: "space-around" }}>
               <li style={{ marginRight: "20px", listStyle: "none" }}>
@@ -81,6 +100,33 @@ const HeaderNav = () => {
 };
 
 export default HeaderNav;
+const LogoutButton = styled.button`
+  background-color: #009a75;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #007f5f;
+  }
+`;
+const LoginButton = styled.button`
+  background-color: #009a75;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #00755e;
+  }
+`;
 
 const Nav = styled.div`
   display: flex;

@@ -18,12 +18,13 @@ import ContactForm from "./pages/ContactUs";
 import MainPage from "./components/MainPage/MainPage";
 import Appointment from "./components/Appointment/Appointment";
 import DoctorsZone from "./components/DoctorsZone/DoctorsZone";
-import ScoreChart from "./ScoreChart"
+import ScoreChart from "./ScoreChart";
 import Patients from "./Patients";
 import Settings from "./components/Settings/Settings";
 import App1 from "./App1";
 import Prescription from "./Prescription";
 import Help from "./pages/Help";
+import Logout from "./Auth/Logout";
 
 function App() {
   return (
@@ -36,22 +37,29 @@ function App() {
           {" "}
           <Route exact path="/Dementiatalk" element={<Dementiatalk />} />
         </Route>
-    
-          <Route exact path="/Caregiver" element={<Caregiver />}/>
-     
-      
+
+        <Route exact path="/Caregiver" element={<Caregiver />} />
+
         <Route exact path="/Register" element={<Registration />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
         <Route exact path="/recommended" element={<Docter />} />
-        <Route exact path="/quiz" element={<Quiz />} />
+
+        <Route exact path="/quiz" element={<ProtectedRoute />}>
+          {" "}
+          <Route exact path="/quiz" element={<Quiz />} />
+        </Route>
+
         <Route
           exact
           path="/ChangePassword"
           element={<ChangePassword />}
         ></Route>
-       
 
-        <Route exact path="/main-page" element={<MainPage />} />
+        <Route exact path="/main-page" element={<ProtectedRoute />}>
+          {" "}
+          <Route exact path="/main-page" element={<MainPage />} />
+        </Route>
+
         <Route exact path="/Appointment" element={<Appointment />} />
         <Route exact path="/doctorsZone" element={<DoctorsZone />} />
         <Route exact path="/dashboard" element={<App1 />} />
@@ -59,8 +67,9 @@ function App() {
         <Route exact path="/contactUs" element={<ContactForm />} />
         <Route exact path="/patients" element={<Patients />} />
         <Route exact path="/Prescription" element={<Prescription />} />
-        <Route exact path="/Sentiment" element={<ScoreChart/>} />
-        <Route exact path="/help" element={<Help/>} />
+        <Route exact path="/Sentiment" element={<ScoreChart />} />
+        <Route exact path="/help" element={<Help />} />
+        <Route exact path="/logout" element={<Logout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

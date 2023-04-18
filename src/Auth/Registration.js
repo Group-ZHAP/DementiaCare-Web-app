@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 function Registration() {
   const [showAlert, setShowAlert] = React.useState(false);
   const [alertMessage, setAlertMessage] = React.useState("");
-
   const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState("");
   const [gender, setGender] = React.useState("");
@@ -18,7 +17,7 @@ function Registration() {
   const [caretaker_relation, setCaretaker_relation] = React.useState("");
   const [doctor_name, setDoctor_name] = React.useState("");
   const [error, setError] = React.useState(null);
- 
+
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -39,16 +38,16 @@ function Registration() {
           }),
         }
       );
-      
+
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       if (!response.ok) {
         switch (response.status) {
           case 400:
             // Handle user already exists
-            setAlertMessage(
-              "User already exists, please login or choose another email"
-            );
+            // setAlertMessage(
+            //   "User already exists, please login or choose another email"
+            // );
             console.log(
               "User already exists, please login or choose another email"
             );
@@ -56,6 +55,8 @@ function Registration() {
             break;
           case 201:
             // Handle Success
+
+            setAlertMessage(" Successful registeration");
             console.log("Successful registeration");
             break;
           default:
@@ -64,7 +65,7 @@ function Registration() {
         }
         throw new Error(data.message);
       }
-
+      setAlertMessage(" Successful registeration");
       console.log("User registered successfully:", data);
     } catch (error) {
       setError(error.message);
@@ -184,11 +185,11 @@ function Registration() {
             <Row>
               <Col>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>caretaker_relation</Form.Label>
+                  <Form.Label>ID</Form.Label>
                   <Form.Control
                     type="text"
                     name="caretaker_relation"
-                    placeholder="caretaker_relation"
+                    placeholder="Id"
                     onChange={(e) => setCaretaker_relation(e.target.value)}
                     value={caretaker_relation}
                     required
@@ -221,7 +222,7 @@ function Registration() {
               onClose={() => setShowAlert(false)}
               dismissible
             >
-              <Alert.Heading>Error</Alert.Heading>
+              <Alert.Heading>Successful</Alert.Heading>
               <p>{alertMessage}</p>
             </Alert>
           )}

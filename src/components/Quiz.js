@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Breadcrumb } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import Confetti from "react-confetti";
 import "./quiz.css";
 import { db } from "../firebase";
@@ -17,7 +17,7 @@ function Quiz() {
     // This can be done using a library or API such as Google Cloud Natural Language API or VaderSentiment library
     // Return a sentiment string such as "positive", "negative", or "neutral"
     // Example implementation using the VaderSentiment library:
-    if (score < 5) {
+    if (score < 5 && score !== 0) {
       return "negative";
     } else if (score > 5) {
       return "positive";
@@ -25,6 +25,7 @@ function Quiz() {
       return "neutral";
     }
   };
+
   const questions = [
     {
       text: "Do you have trouble remembering recent events?",
@@ -170,11 +171,44 @@ function Quiz() {
                 {score} out of {questions.length} correct - (
                 {(score / questions.length) * 100}%)
               </h2>
-              <h2>Sentiment: {scoreSentiment}</h2>
-              <Confetti />
-              <button className="button" onClick={() => restartGame()}>
+              {/* <h2>Sentiment: {scoreSentiment}</h2> */}
+              <Link to="/Sentiment">
+                <button
+                  onClick={() => restartGame()}
+                  className="button"
+                  style={{
+                    marginRight: "10px",
+                    marginBottom: "10px",
+                    marginTop: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  Result
+                </button>
+              </Link>
+              <Link to="/recommended">
+                <button
+                  onClick={() => restartGame()}
+                  className="button"
+                  style={{
+                    marginRight: "10px",
+                    marginBottom: "10px",
+                    marginTop: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  Recommendation
+                </button>
+              </Link>
+              <button
+                className="button"
+                onClick={() => restartGame()}
+                style={{ marginBottom: "10px", padding: "10px" }}
+              >
                 Restart quiz
               </button>
+
+              {/* {score>5 && <Confetti/>} */}
             </div>
           ) : (
             <div className="question-card">

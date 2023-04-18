@@ -54,7 +54,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-              Portal
+               Appointment
               </NavLink>
             </li>
             <li className="nav-item">

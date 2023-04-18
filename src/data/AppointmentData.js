@@ -47,7 +47,7 @@ const appointmentData = [
         "shortDetails":"10 SPACES AVAILABLE"
     }, {
         "key":"09",
-        "title":"Late-stage Dementia ",
+        "title":"Last-stage Dementia ",
         "time":"7:00 AM - 11:30 PM",
         "shortDetails":"10 SPACES AVAILABLE"
     },

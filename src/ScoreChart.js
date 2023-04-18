@@ -32,9 +32,9 @@ const ScoreSentiment = () => {
       const ctx = canvasRef.current.getContext('2d');
       const labels = ['Positive', 'Neutral', 'Negative'];
       const data = [
-        sentimentScores.filter(score => score.score > 5).length,
+        sentimentScores.filter(score => score.score > 5 ).length,
         sentimentScores.filter(score => score.score === 0).length,
-        sentimentScores.filter(score => score.score < 5).length,
+        sentimentScores.filter(score => score.score < 5 && score.score !== 0).length,
       ];
       const backgroundColors = [
         'rgba(75, 192, 205)',
